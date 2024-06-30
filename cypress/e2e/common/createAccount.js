@@ -2,7 +2,7 @@ import { Given, When, Then, And } from "cypress-cucumber-preprocessor/steps"
 import homaPage from "../../pages/homePage.po"
 import createAccount from "../../pages/createAccount.po"
 import accountPage from "../../pages/accountPage.po"
-
+ 
 Given("Open Magento Webpage", () => {
 
     cy.visit("/")
