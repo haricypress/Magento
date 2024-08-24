@@ -3,13 +3,17 @@
 
 Feature: Verify Signup and Signin At Magento Webpage
 
-    Scenario: Verify Signup In Magento Webpage
+    Scenario Outline: Verify Signup In Magento Webpage
         Given Open Magento Webpage
         When Click on create Account link
-        And Enter Firstname and Lastname
-        And Enter Email and Password and retype password
+        And Enter "<Firstname>" and "<Lastname>"
+        And Enter Email and "<Password>" and retype "<password>"
         Then click on Submit button
         And Assert login success page
+        Examples:
+            | Firstname | Lastname | password   |
+            | Hari      | Cypress  | Modem2000@ |
+
 
 
     Scenario: verifying signin into website

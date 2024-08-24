@@ -14,22 +14,21 @@ When("Click on create Account link", () => {
     cy.contains(homaPage.createAccountLink()).click()
 })
 
-And("Enter Firstname and Lastname", () => {
+And("Enter {string} and {string}", (username,password) => {
 
-    cy.get(createAccount.firstName()).type("fkdhkjh")
-    cy.get(createAccount.lastName()).type("dsdsd")
+    cy.get(createAccount.firstName()).type("username")
+    cy.get(createAccount.lastName()).type("password")
 })
 
-And("Enter Email and Password and retype password", () => {
+And("Enter Email and {string} and retype {string}", (password) => {
     const r = (Math.random()+1).toString(36).substring(7)
-    const emailaddress = "aaaaaaa"+r+"@gmail.com"
-    const pass = "Modem2000@"
+    const emailaddress = "example"+r+"@gmail.com"
     
-    cy.writeFile("cypress/fixtures/credentials.json", {"Email" : emailaddress, "password": pass})
+    cy.writeFile("cypress/fixtures/credentials.json", {"Email" : emailaddress, "password": password})
     
     cy.get(createAccount.EmailAddress()).type(emailaddress)
-    cy.get(createAccount.password()).type(pass)
-    cy.get(createAccount.confirmPassword()).type(pass)
+    cy.get(createAccount.password()).type(password)
+    cy.get(createAccount.confirmPassword()).type(password)
 
 })
 Then("click on Submit button", () => {
