@@ -2,7 +2,7 @@
 
 Feature: Verify Signup and Signin At Magento Webpage
 
-
+ 
 
     Scenario: Verify Signup In Magento Webpage
         Given Open Magento Webpage
