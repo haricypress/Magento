@@ -36,5 +36,5 @@ Then("click on Submit button", () => {
     cy.xpath(createAccount.submitButton()).click()
 })
 And("Assert login success page", ()=>{
-accountPage.assertAccountPage()
+cy.url().should("eq",accountPage.assertAccountPage())
 })
